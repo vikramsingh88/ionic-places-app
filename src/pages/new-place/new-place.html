@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Place</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="onPlaceCreate(f.value)" #f="ngForm">
+        <ion-item>
+            <ion-label fixed>Title</ion-label>
+            <ion-input type="text" name="place" ngModel required></ion-input>
+        </ion-item>
+        <button ion-button full type="submit" [disabled]="!f.valid">Add Place</button>
+    </form>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col col-12><button ion-button full (click)="onLocateMe()">Locate Me</button></ion-col>
+        </ion-row>    
+        <ion-row>
+            <ion-col col-12>
+              <p>Your Location : {{location.lat}} : {{location.lng}}</p>
+            </ion-col>
+          </ion-row>       
+      </ion-grid>
+</ion-content>
